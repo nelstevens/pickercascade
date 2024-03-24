@@ -1,0 +1,18 @@
+Package: pickercascade
+Type: Package
+Title: Wraps array of pickerInputs to form a single input control.
+Version: 0.1.0
+Description: pickerCascade wraps an arbitrary amount of shinyWidgets::pickerInputs
+    to form a single input unit. These pickerInputs then form a cascade like structure
+    where a changed pickerInput clears all downstream pickerInputs. Optionally
+    cleared pickerInputs can also be hidden dynamically (parameter dynHide).
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    htmltools,
+    shiny,
+    shinyWidgets
+Authors@R: 
+    person("Nelson", "Stevens", role = "ctb")
+RoxygenNote: 7.2.3
