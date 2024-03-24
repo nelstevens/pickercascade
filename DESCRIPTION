@@ -14,5 +14,5 @@ Imports:
     shiny,
     shinyWidgets
 Authors@R: 
-    person("Nelson", "Stevens", role = "ctb")
+    person("Nelson", "Stevens", email = "nelson.stevens92@gmail.com", role = c("aut", "cre"))
 RoxygenNote: 7.2.3

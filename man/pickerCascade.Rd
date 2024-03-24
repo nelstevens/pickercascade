@@ -9,7 +9,9 @@ pickerCascade(inputId, ..., dynhide = FALSE)
 \arguments{
 \item{inputId}{Id of input.}
 
-\item{value}{Initial value.}
+\item{...}{UI functions to be wrapped (must contain pickerInputs)}
+
+\item{dynhide}{boolean to indicate whether to hide cleared pickerInputs. default = FALSE.}
 }
 \description{
 pickerCascade
