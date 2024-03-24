@@ -51,7 +51,7 @@ pickerCascade <- function(inputId, ..., dynhide = FALSE){
   dep <- htmltools::htmlDependency(
     name = "cascadeInputBinding",
     version = "1.0.0",
-    src = c(file = system.file("packer", package = "pickercascade")),
+    src = c(file = system.file("assets", package = "pickercascade")),
     script = "cascadeInput.js"
   )
   btn <- shinyWidgets::actionBttn(paste0(inputId, "-btn"), "send", class = "sndbtn")
