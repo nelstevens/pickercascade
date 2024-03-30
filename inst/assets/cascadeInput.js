@@ -54,13 +54,13 @@ $.extend(cascadeInputBinding, {
         }, $(el).data("choicelist"));
         // make new options
         const opts = Object.keys(selobj).map(function(val) {
-        return `<option value='${val}'>${val}</option>`
-      });
-      optst = "".concat(...opts);
-      // send new data to pickerinput
-      pckrs.slice(inx+1).each((ix, et) => {
-        $(et).data("shinyInputBinding").receiveMessage(et, {choices: optst, value: ""});
-      });
+          return `<option value='${val}'>${val}</option>`
+        });
+        optst = "".concat(...opts);
+        // send new data to pickerinput
+        pckrs.slice(inx+1).each((ix, et) => {
+          $(et).data("shinyInputBinding").receiveMessage(et, {choices: optst, value: ""});
+        });
       }
       // if last picker show button
       if (inx == pckrs.length-1) {// hide send button
