@@ -2,6 +2,7 @@
 
 export(pickerCascade)
 importFrom(htmltools,htmlDependency)
+importFrom(jsonlite,toJSON)
 importFrom(shiny,tagList)
 importFrom(shiny,tags)
 importFrom(shinyWidgets,actionBttn)

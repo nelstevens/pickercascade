@@ -4,7 +4,7 @@
 \alias{pickerCascade}
 \title{pickerCascade}
 \usage{
-pickerCascade(inputId, ..., dynhide = FALSE)
+pickerCascade(inputId, ..., dynhide = FALSE, choicelist = NULL)
 }
 \arguments{
 \item{inputId}{Id of input.}

@@ -45,6 +45,23 @@ $.extend(cascadeInputBinding, {
         $(et).selectpicker("val", "");
         $(et).selectpicker("refresh");
       });
+      if ($(el).hasClass("choicelist")) {
+        // get all selections before inx
+        presl = pckrs.slice(0, inx + 1).map((em, eb) => $(eb).val());
+        // get proper object
+        selobj = [...presl].reduce((car, kye) => {
+          return car[kye];
+        }, $(el).data("choicelist"));
+        // make new options
+        const opts = Object.keys(selobj).map(function(val) {
+        return `<option value='${val}'>${val}</option>`
+      });
+      optst = "".concat(...opts);
+      // send new data to pickerinput
+      pckrs.slice(inx+1).each((ix, et) => {
+        $(et).data("shinyInputBinding").receiveMessage(et, {choices: optst, value: ""});
+      });
+      }
       // if last picker show button
       if (inx == pckrs.length-1) {// hide send button
         $(el).find(".sndbtn").css("visibility", "visible");
@@ -56,7 +73,18 @@ $.extend(cascadeInputBinding, {
   },
   unsubscribe: (el) => {
     $(el).off(".cascadeInputBinding");
-  }
-});
+  },
+  initialize: function(el) {
+    /*
+    if ($(el).hasClass("choicelist")) {
+      const opts = Object.keys($(el).data("choicelist")).map(function(val) {
+        return `<option value='${val}'>${val}</option>`
+      });
+      optst = "".concat(...opts);
+      //($(el).find(".selectpicker")[0]).data("shinyInputBinding").receiveMessage(el, {choices: optst});
+    }
+    */
+   this.choicelist = $(el).data("choicelist");
+  }});
 
 Shiny.inputBindings.register(cascadeInputBinding, "cascade.cascadeInputBinding");
