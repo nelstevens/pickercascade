@@ -5,6 +5,7 @@
 #' @param inputId Id of input.
 #' @param ... UI functions to be wrapped (must contain pickerInputs)
 #' @param dynhide boolean to indicate whether to hide cleared pickerInputs. default = FALSE.
+#' @param choicelist optional nested list that determines downstream choiceoptions.ß
 #'
 #' @examples
 #'
@@ -43,11 +44,16 @@
 #' @importFrom shiny tags tagList
 #' @importFrom htmltools htmlDependency
 #' @importFrom shinyWidgets actionBttn
+#' @importFrom jsonlite toJSON
 #'
 #' @export
-pickerCascade <- function(inputId, ..., dynhide = FALSE){
+pickerCascade <- function(inputId, ..., dynhide = FALSE, choicelist = NULL){
 
   stopifnot(!missing(inputId))
+
+  if (!is.null(choicelist)) {
+    jsls <- toJSON(choicelist, auto_unbox = TRUE)
+  }
   dep <- htmltools::htmlDependency(
     name = "cascadeInputBinding",
     version = "1.0.0",
@@ -61,6 +67,8 @@ pickerCascade <- function(inputId, ..., dynhide = FALSE){
     shiny::div(
       class = "cascadeInputBinding",
       class = if(dynhide) "dynhide",
+      class = if(!is.null(choicelist)) "choicelist",
+      `data-choicelist` = if (!is.null(choicelist)) jsls,
       id = inputId,
       shiny::div(
         ...

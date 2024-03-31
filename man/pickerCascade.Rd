@@ -4,7 +4,7 @@
 \alias{pickerCascade}
 \title{pickerCascade}
 \usage{
-pickerCascade(inputId, ..., dynhide = FALSE)
+pickerCascade(inputId, ..., dynhide = FALSE, choicelist = NULL)
 }
 \arguments{
 \item{inputId}{Id of input.}
@@ -12,6 +12,8 @@ pickerCascade(inputId, ..., dynhide = FALSE)
 \item{...}{UI functions to be wrapped (must contain pickerInputs)}
 
 \item{dynhide}{boolean to indicate whether to hide cleared pickerInputs. default = FALSE.}
+
+\item{choicelist}{optional nested list that determines downstream choiceoptions.ß}
 }
 \description{
 pickerCascade
