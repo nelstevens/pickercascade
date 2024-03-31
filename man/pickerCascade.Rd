@@ -12,6 +12,8 @@ pickerCascade(inputId, ..., dynhide = FALSE, choicelist = NULL)
 \item{...}{UI functions to be wrapped (must contain pickerInputs)}
 
 \item{dynhide}{boolean to indicate whether to hide cleared pickerInputs. default = FALSE.}
+
+\item{choicelist}{optional nested list that determines downstream choiceoptions.ß}
 }
 \description{
 pickerCascade

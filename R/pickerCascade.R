@@ -5,6 +5,7 @@
 #' @param inputId Id of input.
 #' @param ... UI functions to be wrapped (must contain pickerInputs)
 #' @param dynhide boolean to indicate whether to hide cleared pickerInputs. default = FALSE.
+#' @param choicelist optional nested list that determines downstream choiceoptions.ß
 #'
 #' @examples
 #'
